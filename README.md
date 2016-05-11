@@ -8,7 +8,7 @@ gulp详解站点：http://www.cnblogs.com/2050/p/4198792.html<br>
 <br>
 要求有一定的nodejs、gulp基础。<br>
 使用方法：<br>
-1、搭建nodejs环境，安装gulp模块。<br>
+1、搭建nodejs环境，安装gulp模块。（全局安装gulp后，还需要在每个要使用gulp的项目中都单独安装一次。）<br>
 2、在根目录下（gulpfile.js文件所在的目录），执行npm install命令，安装依赖的模块。<br>
 3、运行gulp rev 执行rev任务，完成自动化压缩替换工作。<br>
 也可以执行gulp,执行default任务，监听js、css文件的变化，有文件变动会执行rev任务，完成相关工作。<br>
