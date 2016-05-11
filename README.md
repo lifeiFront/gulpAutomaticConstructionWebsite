@@ -1,7 +1,8 @@
 # gulpAutomaticConstructionWebsite
 gulp 自动化构建web站点实例详解
 <br>
-gulpfile.js文件中有详细的注释
+gulpfile.js文件中有详细的注释<br>
+gulp详解站点：http://www.cnblogs.com/2050/p/4198792.html<br>
 <br>
 功能：自动化压缩js、css代码，添加md5后缀，替换jsp、html中的对应引用路径实例。
 <br>
