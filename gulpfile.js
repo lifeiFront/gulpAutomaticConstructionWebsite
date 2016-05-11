@@ -34,6 +34,10 @@ gulp.task('del', function() {//先删除文件
 gulp.task('default',function(){//js、样式文件发生变化是，自动执行rev任务重新构建工程
     gulp.watch('js/**/*.js', ['rev']);
     gulp.watch('css/**/*.css', ['rev']);
+    // gulp.watch('js/**/*.js', function(event) {//也可通过这种方式针对性的压缩改变的js、css
+    //     console.log(event.type); //变化类型 added为新增,deleted为删除，changed为改变 
+    //     console.log(event.path); //变化的文件的路径
+    // });
 });
 //执行rev任务，调试看下，生成的manifest  json文件中有引入的js,css
 //文件名与根据内容计算出来的签名后缀的对应关系（{"normalize.css": "normalize-0f0d0833f8.css"}），然后替换对应页面中的路径引用  .html文件与.jsp文件均可
