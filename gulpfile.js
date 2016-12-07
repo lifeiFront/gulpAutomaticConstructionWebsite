@@ -87,3 +87,37 @@ gulp.task('rev', function() {
 //         }))
 //         .pipe(gulp.dest('dist'));
 // });
+
+// 推荐使用gulp-rev + gulp-rev-collector是比较方便的方法，结果如下:
+
+// "/css/style.css" => "/dist/css/style-1d87bebe.css"    
+// "/js/script1.js" => "/dist/script1-61e0be79.js"    
+// "cdn/image.gif"  => "//cdn8.example.dot/img/image-35c3af8134.gif"
+// 但是由于公司发布系统限制，如果用上面方法实现，每次更新都会积压过多过期无用的文件，我们预期效果是:
+
+// "/css/style.css" => "/dist/css/style.css?v=1d87bebe"
+// "/js/script1.js" => "/dist/script1.js?v=61e0be79"
+// "cdn/image.gif"  => "//cdn8.example.dot/img/image.gif?v=35c3af8134"
+// 怎么破?改上面两个Gulp插件是最高效的方法了。
+
+// 安装Gulp
+// npm install --save-dev gulp
+
+// 分别安装gulp-rev、gulp-rev-collerctor
+// npm install --save-dev gulp-rev
+// npm install --save-dev gulp-rev-collector
+
+// 打开node_modules\gulp-rev\index.js
+
+// 第133行 manifest[originalFile] = revisionedFile;
+// 更新为: manifest[originalFile] = originalFile + '?v=' + file.revHash;
+
+// 打开node_modules\gulp-rev\node_modules\rev-path\index.js
+
+// 10行 return filename + '-' + hash + ext;
+// 更新为: return filename + ext;
+
+// 打开node_modules\gulp-rev-collector\index.js
+
+// 31行 if ( path.basename(json[key]).replace(new RegExp( opts.revSuffix ), '' ) !== path.basename(key) ) {
+// 更新为: if ( path.basename(json[key]).split('?')[0] !== path.basename(key) ) {
