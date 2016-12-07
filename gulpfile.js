@@ -89,7 +89,7 @@ gulp.task('rev', function() {
 // });
 
 // 推荐使用gulp-rev + gulp-rev-collector是比较方便的方法，结果如下:
-
+//http://www.cnblogs.com/givebest/p/4707432.html
 // "/css/style.css" => "/dist/css/style-1d87bebe.css"    
 // "/js/script1.js" => "/dist/script1-61e0be79.js"    
 // "cdn/image.gif"  => "//cdn8.example.dot/img/image-35c3af8134.gif"
